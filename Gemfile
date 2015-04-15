@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'dotenv-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
+gem 'lograge'
 gem 'pg'
 gem 'rails', '4.2.1'
 gem 'responders'
@@ -18,7 +19,6 @@ group :assets do
 end
 
 group :production do
-  gem 'lograge'
   gem 'puma'
   gem 'rails_stdout_logging'
 end
