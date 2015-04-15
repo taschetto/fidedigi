@@ -17,6 +17,12 @@ group :assets do
   gem 'uglifier', '>= 1.3.0'
 end
 
+group :production do
+  gem 'lograge'
+  gem 'puma'
+  gem 'rails_stdout_logging'
+end
+
 group :development, :test do
   gem 'annotate', '~> 2.6.6'
   gem 'awesome_print'
