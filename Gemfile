@@ -20,7 +20,7 @@ end
 
 group :production do
   gem 'puma'
-  gem 'rails_stdout_logging'
+  gem 'rails_12factor'
 end
 
 group :development, :test do
