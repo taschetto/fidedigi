@@ -35,6 +35,11 @@ task :setup => :environment do
   queue %[echo "-----> Be sure to edit 'shared/.env'."]
 end
 
+desc 'Restart Rails app'
+task :restart => :environment do
+  queue! 'kill -USR1 /var/run/fidedigi/web.pid'
+end
+
 desc "Deploys the current version to the server."
 task :deploy => :environment do
   deploy do
@@ -45,8 +50,7 @@ task :deploy => :environment do
     invoke :'rails:assets_precompile'
 
     to :launch do
-      queue "mkdir -p #{deploy_to}/#{current_path}/tmp/"
-      queue "touch #{deploy_to}/#{current_path}/tmp/restart.txt"
+      invoke :restart
     end
   end
 end
