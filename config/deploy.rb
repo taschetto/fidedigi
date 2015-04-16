@@ -10,7 +10,7 @@ set :bundle_bin, 'ruby -S bundle'
 set :deploy_to, '/home/fidedigi/app'
 set :repository, 'git@github.com:fidelidade-digital/fidedigi.git'
 set :branch, 'master'
-set :shared_paths, ['log', '.env', 'tmp']
+set :shared_paths, ['log', '.env', 'tmp', 'pids']
 
 set :user, 'fidedigi'
 set :forward_agent, true
@@ -37,7 +37,7 @@ end
 
 desc 'Restart Rails app'
 task :restart => :environment do
-  queue! 'kill -USR1 /var/run/fidedigi/web.pid'
+  #queue! 'kill -USR1 /home/fidedigi/app/shared/pids/puma.pid'
 end
 
 desc "Deploys the current version to the server."
