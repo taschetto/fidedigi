@@ -40,7 +40,7 @@ end
 
 desc 'Restart Rails app'
 task :restart => :environment do
-  #queue! 'kill -USR1 /home/fidedigi/app/shared/pids/puma.pid'
+  queue! 'kill -USR1 `cat /home/fidedigi/app/shared/pids/puma.pid`'
 end
 
 desc "Deploys the current version to the server."
