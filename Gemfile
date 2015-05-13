@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'dotenv-rails'
+gem 'font-awesome-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'lograge'
@@ -10,6 +11,7 @@ gem 'responders'
 gem 'simple_form'
 gem 'therubyracer', platforms: :ruby
 gem 'turbolinks'
+gem 'twitter-bootstrap-rails'
 
 group :assets do
   gem 'coffee-rails', '~> 4.1.0'
