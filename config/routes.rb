@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   root 'dashboard#index'
 
   namespace :managers do
-    resource :company do
-    end
+    resource :company
   end
 end
