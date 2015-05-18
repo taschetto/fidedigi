@@ -1,4 +1,4 @@
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-loka navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -7,13 +7,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">Fidelidade Digital :: Manager</a>
+          <a class="navbar-brand" href="/">Fidelidade Digital :: Balconista</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><%= link_to current_manager.company.name, managers_company_path %></li>
-            <li><%= link_to "Balconistas", managers_company_clerks_path %></li>
+            <li><%= link_to "Estabelecimento", managers_company_path %></li>
+            <li><%= link_to "Balconistas", "#" %></li>
             <li><%= link_to "Vouchers", "#" %></li>
             <li><%= link_to "Cupons", "#" %></li>
             <li><%= link_to "Promoções", "#" %></li>

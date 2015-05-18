@@ -3,9 +3,15 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { sessions: "users/sessions" }
   devise_for :managers, controllers: { sessions: "users/sessions" }
+  devise_for :clerks, controllers: { sessions: "users/sessions" }
 
   namespace :managers do
-    resource :company
+    shallow do
+      resource :company do
+        resources :clerks
+      end
+    end
     get '/', to: "companies#show"
   end
+
 end

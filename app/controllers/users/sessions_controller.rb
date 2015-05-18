@@ -1,12 +1,14 @@
 class Users::SessionsController < Devise::SessionsController
   def create
     # Find the user type
-    u = params[:user] ? params[:user] : params[:manager]
+    u = params[:user] ? params[:user] : (params[:manager] ? params[:manager] : params[:clerk])
     user_class = :user
     if is_user?(u)
       user_class = :user
     elsif is_manager?(u)
       user_class = :manager
+    elsif is_clerk?(u)
+      user_class = :clerk
     end
 
     # Attempt authentication with Warden
@@ -43,11 +45,18 @@ class Users::SessionsController < Devise::SessionsController
     !u.nil?
   end
 
+  def is_clerk?(user)
+    u = Clerk.find_by(email: user[:email])
+    !u.nil?
+  end
+
   def after_sign_in_path_for(resource)
     if resource.is_a?(User)
       super
     elsif resource.is_a?(Manager)
       return '/managers'
+    elsif resource.is_a?(Clerk)
+      return '/clerks'
     end
   end
 end

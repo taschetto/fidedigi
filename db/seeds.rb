@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Manager.create email: "manager@manager.com",
+               password: "12345678"
+
+Company.create name: Faker::Company.name,
+               ratio: rand(1..100),
+               manager: Manager.first
+
+User.create email: "user@user.com",
+            password: "12345678"
