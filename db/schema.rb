@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518010445) do
+ActiveRecord::Schema.define(version: 20150518014853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,18 @@ ActiveRecord::Schema.define(version: 20150518010445) do
   add_index "managers", ["email"], name: "index_managers_on_email", unique: true, using: :btree
   add_index "managers", ["reset_password_token"], name: "index_managers_on_reset_password_token", unique: true, using: :btree
 
+  create_table "points", force: :cascade do |t|
+    t.integer  "company_id"
+    t.decimal  "balance"
+    t.datetime "expiration"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "points", ["company_id"], name: "index_points_on_company_id", using: :btree
+  add_index "points", ["user_id"], name: "index_points_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -92,13 +104,18 @@ ActiveRecord::Schema.define(version: 20150518010445) do
     t.integer  "clerk_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "point_id"
   end
 
   add_index "vouchers", ["clerk_id"], name: "index_vouchers_on_clerk_id", using: :btree
   add_index "vouchers", ["company_id"], name: "index_vouchers_on_company_id", using: :btree
+  add_index "vouchers", ["point_id"], name: "index_vouchers_on_point_id", using: :btree
 
   add_foreign_key "clerks", "companies"
   add_foreign_key "companies", "managers"
+  add_foreign_key "points", "companies"
+  add_foreign_key "points", "users"
   add_foreign_key "vouchers", "clerks"
   add_foreign_key "vouchers", "companies"
+  add_foreign_key "vouchers", "points"
 end
