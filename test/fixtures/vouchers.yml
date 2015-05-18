@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  company_id: 
+  expiration: 2015-05-17 22:04:45
+  monetary_value: 9.99
+  points: 1
+  redeemed: false
+  clerk_id: 
+
+two:
+  code: MyString
+  company_id: 
+  expiration: 2015-05-17 22:04:45
+  monetary_value: 9.99
+  points: 1
+  redeemed: false
+  clerk_id: 
