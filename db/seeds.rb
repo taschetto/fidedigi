@@ -15,3 +15,7 @@ Company.create name: Faker::Company.name,
 
 User.create email: "user@user.com",
             password: "12345678"
+
+Clerk.create email: "clerk@clerk.com",
+             password: "12345678",
+             company: Company.first

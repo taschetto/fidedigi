@@ -241,6 +241,7 @@ Devise.setup do |config|
   config.warden do |manager|
   #   manager.intercept_401 = false
     manager.strategies.add(:manager, Devise::Strategies::ManagerStrategie)
+    manager.strategies.add(:clerk, Devise::Strategies::ClerkStrategie)
     manager.default_strategies(scope: :manager).unshift :manager
   end
 

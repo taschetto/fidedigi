@@ -5,6 +5,13 @@ Rails.application.routes.draw do
   devise_for :managers, controllers: { sessions: "users/sessions" }
   devise_for :clerks, controllers: { sessions: "users/sessions" }
 
+  namespace :clerks do
+    shallow do
+      resources :vouchers
+    end
+    get '/', to: "vouchers#index"
+  end
+
   namespace :managers do
     shallow do
       resource :company do

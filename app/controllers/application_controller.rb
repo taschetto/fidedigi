@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
     def layout_by_user_type
       return "layouts/application" if user_signed_in?
       return "layouts/managers/application" if manager_signed_in?
+      return "layouts/clerks/application" if clerk_signed_in?
       "devise"
     end
 end

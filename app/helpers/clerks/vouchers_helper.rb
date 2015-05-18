@@ -1,0 +1,2 @@
+module Clerks::VouchersHelper
+end
