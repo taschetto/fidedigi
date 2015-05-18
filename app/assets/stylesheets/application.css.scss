@@ -16,9 +16,11 @@
  */
 
 @import "bootstrap-sprockets";
+@import "bootswatch/flatly/variables";
 @import "bootstrap";
-@import "bootstrap/theme";
 
 body {
-  padding-top: 60px;
+  padding-top: 80px;
 }
+
+@import "bootswatch/flatly/bootswatch";

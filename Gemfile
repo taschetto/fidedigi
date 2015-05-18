@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
+gem 'bootswatch-rails'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 gem 'dotenv-rails'
