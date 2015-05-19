@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
   root 'dashboard#index'
 
+  post 'redeem', to: "points#redeem"
+
   devise_for :users, controllers: { sessions: "users/sessions" }
   devise_for :managers, controllers: { sessions: "users/sessions" }
   devise_for :clerks, controllers: { sessions: "users/sessions" }
 
   namespace :clerks do
     shallow do
-      resources :vouchers
+      resources :vouchers do
+        collection do
+          get :all
+        end
+      end
     end
     get '/', to: "vouchers#index"
   end

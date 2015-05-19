@@ -1,1 +1,6 @@
 <h1>Página inicial</h1>
+
+<%= simple_form_for :voucher, url: redeem_path do |form| %>
+  <%= form.input :code, as: :string %>
+  <%= form.submit %>
+<% end %>

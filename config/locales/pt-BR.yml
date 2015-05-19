@@ -1,9 +1,32 @@
 pt-BR:
-  login: "Entrar"
-  signup: "Cadastrar"
-  forgot_password: "Esqueci minha senha"
-  password: "Senha"
-  cancel_my_account: "Cancelar minha conta"
-  unhappy: "Está triste?"
-  are_you_sure: "Você está certo disso?"
-  back: "Voltar"
+  fidedigi: Fidelidade Digital
+  login: Entrar
+  signup: Cadastrar
+  forgot_password: Esqueci minha senha
+  password: Senha
+  cancel_my_account: Cancelar minha conta
+  unhappy: Está triste?
+  are_you_sure: Você está certo disso?
+  new: Novo
+  edit: Editar
+  profile: Perfil
+  sign_out: Sair
+  back: Voltar
+  view: Visualizar
+  clerk: Balconista
+  voucher: Voucher
+  menu:
+    vouchers: "Vouchers"
+  clerks:
+    new: Novo
+    mine: Criados por mim
+    all: Todos
+  vouchers:
+    id: Id
+    code: Código
+    monetary_value: Valor (R$)
+    points: Pontos
+    expiration: Expira em
+    redeemed: Resgatado
+  yes: Sim
+  no: Não

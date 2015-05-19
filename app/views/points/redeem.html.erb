@@ -1,0 +1,21 @@
+<% if @voucher.nil? then %>
+  <h1>Voucher inválido ou já resgatado. Tente novamente.
+<% else %>
+  <h1>Voucher resgatado com sucesso!</h1>
+  <pre>
+               Code: <%= @voucher.code %>
+          Resgatado: <%= @voucher.redeemed %>
+              Valor: <%= @voucher.monetary_value %>
+             Pontos: <%= @voucher.points %>
+          Expira em: <%= @voucher.expiration %>
+    Estabelecimento: <%= @voucher.company.name %>
+         Balconista: <%= @voucher.clerk.email %>
+  </pre>
+
+  <pre>
+              Saldo: <%= @voucher.point.balance %>
+          Expira em: <%= @voucher.point.expiration %>
+  </pre>
+
+<% end %>
+<%= link_to "Voltar", :back %>
