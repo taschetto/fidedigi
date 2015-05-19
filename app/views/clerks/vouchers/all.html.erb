@@ -1,0 +1,42 @@
+<h1><%= t "clerks.all" %> (<%= current_clerk.company.name %>)</h1><br>
+
+<table id="datatable" class="table table-striped table-bordered table-hover dataTable no-footer">
+  <thead>
+    <tr>
+      <th><%= t "vouchers.id" %></th>
+      <th><%= t "vouchers.code" %></th>
+      <th><%= t "vouchers.monetary_value" %></th>
+      <th><%= t "vouchers.points" %></th>
+      <th><%= t "vouchers.expiration" %></th>
+      <th><%= t "vouchers.redeemed" %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @vouchers.each do |voucher| %>
+      <tr>
+        <td><%= link_to voucher.id, clerks_voucher_path(voucher) %></td>
+        <td><%= voucher.code %></td>
+        <td><%= voucher.monetary_value %></td>
+        <td><%= voucher.points %></td>
+        <td><%= voucher.expiration %></td>
+        <td><%= voucher.redeemed %></td>
+        <td>
+          <%= link_to t(:view), clerks_voucher_path(voucher) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script type="text/javascript">
+  $(document).ready( function () {
+    $('#datatable').DataTable({
+      "language": {
+        "url": "//cdn.datatables.net/plug-ins/f2c75b7247b/i18n/Portuguese-Brasil.json"
+      },
+      "bStateSave": true,
+      "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Todos"]]
+    });
+  });
+</script>
