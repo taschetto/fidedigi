@@ -1,10 +1,10 @@
-<pre>
-        Id: <%= @voucher.id %>
-      Code: <%= @voucher.code %>
-     Money: <%= @voucher.monetary_value %>
-    Points: <%= @voucher.points %>
-Expiration: <%= @voucher.expiration %>
-  Redeemed: <%= @voucher.redeemed %>
-   Company: <%= @voucher.company.name %>
-Created at: <%= @voucher.created_at %>
-</pre>
+<h1>Voucher #<%= @voucher.id %></h1><br>
+
+<h3><small> <%= t "vouchers.code" %>:           </small> <%= @voucher.code %></h3>
+<h3><small> <%= t "vouchers.redeemed" %>:       </small> <%= @voucher.redeemed %></h3>
+<h3><small> <%= t "vouchers.monetary_value" %>: </small> <%= @voucher.monetary_value %></h3>
+<h3><small> <%= t "vouchers.points" %>:         </small> <%= @voucher.points %></h3>
+<h3><small> <%= t "vouchers.expiration" %>:     </small> <%= @voucher.expiration %></h3>
+<h3><small> <%= t "company" %>:                 </small> <%= @voucher.company.name %></h3>
+<h3><small> <%= t "clerk" %>:                   </small> <%= @voucher.clerk.email %></h3>
+<h3><small> <%= t "created_at" %>:              </small> <%= @voucher.created_at %></h3>

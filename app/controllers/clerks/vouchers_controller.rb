@@ -10,6 +10,11 @@ class Clerks::VouchersController < ApplicationController
     respond_with(@vouchers)
   end
 
+  def all
+    @vouchers = current_clerk.company.vouchers.all
+    respond_with(@vouchers)
+  end
+
   def show
     respond_with(@voucher)
   end
@@ -27,7 +32,7 @@ class Clerks::VouchersController < ApplicationController
     @voucher.redeemed = false
     @voucher.points = (current_clerk.company.ratio * @voucher.monetary_value).to_i
     @voucher.save
-    respond_with(@voucher, location: clerks_vouchers_path)
+    respond_with(@voucher, location: clerks_voucher_path(@voucher))
   end
 
   def destroy
