@@ -1,8 +1,7 @@
 class Clerks::VouchersController < ApplicationController
+  layout "layouts/clerks/application"
   before_action :authenticate_clerk!
-
   before_action :set_voucher, only: [:show, :edit, :update, :destroy]
-
   respond_to :html, :json
 
   def index
@@ -25,14 +24,15 @@ class Clerks::VouchersController < ApplicationController
   end
 
   def create
-    @voucher = Voucher.new(voucher_params)
+    @voucher = Voucher.new()
+    @voucher.monetary_value = voucher_params[:monetary_value].gsub(".","").gsub(",",".")
     @voucher.company = current_clerk.company
     @voucher.expiration = 60.days.from_now
     @voucher.clerk = current_clerk
     @voucher.redeemed = false
-    @voucher.points = (current_clerk.company.ratio * @voucher.monetary_value).to_i
+    @voucher.points = (@voucher.clerk.company.ratio * @voucher.monetary_value).to_i
     @voucher.save
-    respond_with(@voucher, location: clerks_voucher_path(@voucher))
+    respond_with(@voucher, location: ["clerks", @voucher])
   end
 
   def destroy

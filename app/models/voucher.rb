@@ -5,6 +5,9 @@ class Voucher < ActiveRecord::Base
   belongs_to :clerk
   belongs_to :point
 
+  validate :value
+
+
   def redeem(user)
     return if self.redeemed
 
@@ -13,8 +16,15 @@ class Voucher < ActiveRecord::Base
     self.point = point
     self.redeemed = true
 
-    point.save
-    self.save
+    point.save && self.save
+  end
+
+  def value
+    if self.monetary_value <= 0
+      errors.add(:monetary_value, I18n.t("errors.positive"))
+    elsif self.monetary_value < self.company.minimum_value then
+      errors.add(:monetary_value, I18n.t("errors.minimum", minimum: self.company.minimum_value))
+    end
   end
 
   def generate_token

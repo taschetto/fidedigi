@@ -12,7 +12,8 @@ if !Company.any? then
 
   Company.create name: Faker::Company.name,
                  ratio: rand(1..100),
-                 manager: Manager.first
+                 manager: Manager.first,
+                 minimum_value: 10
 
   User.create email: "user@user.com",
               password: "12345678"
