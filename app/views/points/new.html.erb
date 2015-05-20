@@ -1,0 +1,6 @@
+<h1><%= "#{t(:redeem)} #{t(:voucher)}"%></h1>
+
+<%= simple_form_for :voucher, url: redeem_path do |form| %>
+  <%= form.input :code, as: :string %>
+  <%= form.submit t("vouchers.redeem"), class: "btn btn-primary" %>
+<% end %>

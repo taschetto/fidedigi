@@ -13,6 +13,8 @@ pt-BR:
         password: 'Senha'
         password_confirmation: 'Senha'
         remember_me: 'Lembrar de mim'
+      voucher:
+        code: Código
     placeholders:
       user:
         email: 'email@exemplo.com.br'

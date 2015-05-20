@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   post 'redeem', to: "points#redeem"
 
+  resources :points, only: [:new]
+
   devise_for :users, controllers: { sessions: "users/sessions" }
   devise_for :managers, controllers: { sessions: "users/sessions" }
   devise_for :clerks, controllers: { sessions: "users/sessions" }

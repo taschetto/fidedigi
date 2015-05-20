@@ -1,10 +1,11 @@
-<h1><%= "#{t :new} #{t :voucher}" %></h1><br>
-<%= simple_form_for @voucher, url: clerks_vouchers_path, html: { class: 'form-horizontal' },
-      wrapper: :horizontal_form,
-      wrapper_mappings: {
-        check_boxes: :horizontal_radio_and_checkboxes,
-        boolean: :horizontal_boolean
-      } do |form| %>
-      <%= form.input :monetary_value, as: :decimal, label: t("vouchers.monetary_value") %>
-      <%= form.submit "Gerar Voucher", class: "btn btn-primary" %>
+<h1><%= "#{t :new} #{t :voucher}" %></h1>
+<%= simple_form_for @voucher, url: clerks_vouchers_path do |form| %>
+      <%= form.input :monetary_value, as: :string, label: t("vouchers.monetary_value"), input_html: { class: "moneymask"} %>
+      <%= form.submit "#{t(:new)} #{t(:voucher)}", class: "btn btn-primary" %>
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".moneymask").maskMoney({ thousands:'.', decimal:',', allowZero: true, precision: 2 });
+  });
+</script>

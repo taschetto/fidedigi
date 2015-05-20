@@ -1,4 +1,11 @@
 pt-BR:
+  number:
+    format:
+      unit: 'R$'
+      delimiter: ','
+      separator: '.'
+      precision: 2
+      format: '%u%n'
   fidedigi: Fidelidade Digital
   login: Entrar
   signup: Cadastrar
@@ -13,10 +20,11 @@ pt-BR:
   sign_out: Sair
   back: Voltar
   view: Visualizar
+  redeem: Resgatar
   clerk: Balconista
   voucher: Voucher
   menu:
-    vouchers: "Vouchers"
+    vouchers: Vouchers
   clerks:
     new: Novo
     mine: Criados por mim
@@ -27,6 +35,11 @@ pt-BR:
     monetary_value: Valor (R$)
     points: Pontos
     expiration: Expira em
+    redeem: Resgatar
     redeemed: Resgatado
   yes: Sim
   no: Não
+  errors:
+    invalid_voucher: Voucher inválido ou já resgatado.
+    positive: Valor deve ser superior à R$ 0,00.
+    minimum: "Valor deve ser superior ao mínimo especificado pela empresa (R$ %{minimum})."

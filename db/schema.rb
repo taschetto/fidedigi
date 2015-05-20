@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518230350) do
+ActiveRecord::Schema.define(version: 20150520033937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,8 +40,9 @@ ActiveRecord::Schema.define(version: 20150518230350) do
     t.string   "name"
     t.integer  "ratio"
     t.integer  "manager_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.decimal  "minimum_value"
   end
 
   add_index "companies", ["manager_id"], name: "index_companies_on_manager_id", using: :btree
