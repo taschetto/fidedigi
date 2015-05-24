@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-if Company.any? then
+if !Company.any? then
 
   # Company
   manager = Manager.create email: Faker::Internet.safe_email,
