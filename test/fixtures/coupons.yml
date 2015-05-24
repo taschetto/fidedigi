@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  promotion_id: 
+  user_id: 
+  redeemed: false
+
+two:
+  code: MyString
+  promotion_id: 
+  user_id: 
+  redeemed: false

@@ -1,0 +1,40 @@
+<h1>Todas as <%= t "promotionss" %></h1><br>
+
+<table id="datatable" class="table table-striped table-bordered table-hover dataTable no-footer">
+  <thead>
+    <tr>
+      <th><%= t "promotions.id" %></th>
+      <th><%= t "promotions.title" %></th>
+      <th><%= t "promotions.description" %></th>
+      <th><%= t "promotions.value" %></th>
+      <th><%= t "promotions.expiration" %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @promotions.each do |promotion| %>
+      <tr>
+        <td><%= promotion.id %></td>
+        <td><%= promotion.title %></td>
+        <td><%= promotion.description.slice(0..80) %> (...)</td>
+        <td><%= promotion.value %></td>
+        <td><%= promotion.expiration %></td>
+        <td>
+          <%= link_to t("promotions.details"), promotion_path(promotion) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script type="text/javascript">
+  $(document).ready( function () {
+    $('#datatable').DataTable({
+      "language": {
+        "url": "//cdn.datatables.net/plug-ins/f2c75b7247b/i18n/Portuguese-Brasil.json"
+      },
+      "bStateSave": true,
+      "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Todos"]]
+    });
+  });
+</script>

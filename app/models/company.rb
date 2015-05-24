@@ -3,4 +3,5 @@ class Company < ActiveRecord::Base
   has_many :clerks
   has_many :vouchers
   has_many :points
+  has_many :promotions
 end
