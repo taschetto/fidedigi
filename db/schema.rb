@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520033937) do
+ActiveRecord::Schema.define(version: 20150524185955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,18 @@ ActiveRecord::Schema.define(version: 20150520033937) do
 
   add_index "companies", ["manager_id"], name: "index_companies_on_manager_id", using: :btree
 
+  create_table "coupons", force: :cascade do |t|
+    t.string   "code"
+    t.integer  "promotion_id"
+    t.integer  "user_id"
+    t.boolean  "redeemed"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "coupons", ["promotion_id"], name: "index_coupons_on_promotion_id", using: :btree
+  add_index "coupons", ["user_id"], name: "index_coupons_on_user_id", using: :btree
+
   create_table "managers", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -76,6 +88,20 @@ ActiveRecord::Schema.define(version: 20150520033937) do
 
   add_index "points", ["company_id"], name: "index_points_on_company_id", using: :btree
   add_index "points", ["user_id"], name: "index_points_on_user_id", using: :btree
+
+  create_table "promotions", force: :cascade do |t|
+    t.integer  "company_id"
+    t.date     "expiration"
+    t.integer  "value"
+    t.integer  "availability"
+    t.string   "title"
+    t.string   "description"
+    t.string   "image"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "promotions", ["company_id"], name: "index_promotions_on_company_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -114,8 +140,11 @@ ActiveRecord::Schema.define(version: 20150520033937) do
 
   add_foreign_key "clerks", "companies"
   add_foreign_key "companies", "managers"
+  add_foreign_key "coupons", "promotions"
+  add_foreign_key "coupons", "users"
   add_foreign_key "points", "companies"
   add_foreign_key "points", "users"
+  add_foreign_key "promotions", "companies"
   add_foreign_key "vouchers", "clerks"
   add_foreign_key "vouchers", "companies"
   add_foreign_key "vouchers", "points"
