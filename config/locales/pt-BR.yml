@@ -23,12 +23,39 @@ pt-BR:
   redeem: Resgatar
   clerk: Balconista
   voucher: Voucher
+  companiess: "Empresas"
+  promotionss: "Promoções"
+  pointss: "Extrato de Pontos"
   menu:
-    vouchers: Vouchers
+    companies: Empresas
+    promotions: Promoções
+    pointss: Pontos
+    points:
+      list: Extrato
+      redeem: Resgatar Voucher
   clerks:
     new: Novo
     mine: Criados por mim
     all: Todos
+  companies:
+    id: Id
+    name: Nome
+    ratio: Taxa de Conversão
+    manager: Gerente
+    minimum_value: Valor mínimo
+    promotions: Promoções
+  promotions:
+    id: Id
+    title: Título
+    description: Descrição
+    value: Valor
+    expiration: Expira em
+    details: Detalhes
+  points:
+    id: Id
+    company: Empresas
+    expiration: Expira em
+    balance: Saldo
   vouchers:
     id: Id
     code: Código

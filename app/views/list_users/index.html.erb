@@ -1,0 +1,20 @@
+<h1>Usuários</h1>
+<ul>
+<% @users.each do |u| %>
+  <li><b><%= u.email %></b></li>
+<% end %>
+</ul>
+
+<h1>Clerks</h1>
+<ul>
+<% @clerks.each do |c| %>
+  <li><b><%= c.email %></b> (<%= c.company.name %>)</li>
+<% end %>
+</ul>
+
+<h1>Managers</h1>
+<ul>
+<% @managers.each do |m| %>
+  <li><b><%= m.email %></b> (<%= m.company.name %>)</li>
+<% end %>
+</ul>
