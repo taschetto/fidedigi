@@ -26,6 +26,7 @@ pt-BR:
   voucher: Voucher
   company: Empresa
   buy: Comprar usando meus pontos
+  couponss: Cupons
   companiess: "Empresas"
   promotionss: "Promoções"
   pointss: "Saldo de Pontos por Empresa"
@@ -34,6 +35,7 @@ pt-BR:
   menu:
     companies: Empresas
     promotions: Promoções
+    coupons: Cupons
     pointss: Pontos
     points:
       list: Extrato
@@ -70,7 +72,12 @@ pt-BR:
     redeem: Resgatar
     redeemed: Resgatado
   coupons:
+    id: Id
+    company: Empresa
+    promotion: Promoção
+    redeemed: Resgatado
     redeem: Resgatar
+    details: Detalhar
   yes: Sim
   no: Não
   errors:
