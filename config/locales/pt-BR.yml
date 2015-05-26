@@ -85,3 +85,4 @@ pt-BR:
     invalid_coupon: Cupom inválido ou já resgatado.
     positive: Valor deve ser superior à R$ 0,00.
     minimum: "Valor deve ser superior ao mínimo especificado pela empresa (R$ %{minimum})."
+    insuficient: "Seu saldo de pontos (%{balance}) da empresa %{company} é insuficiente para comprar um cupom desta promoção."
