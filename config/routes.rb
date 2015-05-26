@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'coupons/index'
+
+  get 'coupons/show'
+
+  get 'coupons/index'
+
+  get 'coupons/show'
+
   get 'companies/index'
 
   get 'list_users/index'
@@ -14,6 +22,8 @@ Rails.application.routes.draw do
       get "company/:company_id", to: "points#show", as: "company"
     end
   end
+
+  resources :coupons, only: [:show, :index]
 
   devise_for :users, controllers: { sessions: "users/sessions" }
   devise_for :managers, controllers: { sessions: "users/sessions" }

@@ -1,9 +1,8 @@
-<h1>Cupom comprado com sucesso!</h1>
+<h1>Cupom #<%= @coupon.id %></h1><br>
 
-<h3><small> <%= t "coupons.user" %>:           </small> <%= @coupon.user.email %></h3>
 <h3><small> <%= t "coupons.code" %>:           </small> <%= @coupon.code %></h3>
-<h3><small> <%= t "coupons.redeemed" %>:         </small> <%= @coupon.redeemed %></h3>
 <h3><small> <%= t "coupons.company" %>:       </small> <%= @coupon.promotion.company.name %></h3>
 <h3><small> <%= t "coupons.promotion" %>: </small> <%= @coupon.promotion.title %></h3>
+<h3><small> <%= t "coupons.redeemed" %>:         </small> <%= @coupon.redeemed %></h3>
 
 <%= link_to t(:back), :back %>
