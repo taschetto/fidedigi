@@ -1,0 +1,6 @@
+<h1><%= "#{t(:redeem)} #{t(:coupon)}"%></h1>
+
+<%= simple_form_for :coupon, url: clerks_redeem_path do |form| %>
+  <%= form.input :code, as: :string %>
+  <%= form.submit t("coupons.redeem"), class: "btn btn-primary" %>
+<% end %>

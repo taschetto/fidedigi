@@ -3,7 +3,7 @@ class PromotionsController < ApplicationController
   before_action :authenticate_user!
 
   before_action :set_company, only: [:index]
-  before_action :set_promotion, only: [:show]
+  before_action :set_promotion, only: [:show, :buy]
 
   respond_to :html, :json
 
@@ -15,6 +15,15 @@ class PromotionsController < ApplicationController
   def index
     @promotions = @company.promotions.all
     respond_with(@promotions)
+  end
+
+  def buy
+    @coupon = Coupon.new
+    @coupon.promotion = @promotion
+    @coupon.user = current_user
+    @coupon.redeemed = false
+    @coupon.save
+    respond_with(@coupon)
   end
 
   def show

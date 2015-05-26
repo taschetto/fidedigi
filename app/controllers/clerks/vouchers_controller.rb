@@ -27,7 +27,7 @@ class Clerks::VouchersController < ApplicationController
     @voucher = Voucher.new()
     @voucher.monetary_value = voucher_params[:monetary_value].gsub(".","").gsub(",",".")
     @voucher.company = current_clerk.company
-    @voucher.expiration = 60.days.from_now
+    @voucher.expiration = voucher_params[:expiration]
     @voucher.clerk = current_clerk
     @voucher.redeemed = false
     @voucher.points = (@voucher.clerk.company.ratio * @voucher.monetary_value).to_i
@@ -46,6 +46,6 @@ class Clerks::VouchersController < ApplicationController
     end
 
     def voucher_params
-      params.require(:voucher).permit(:monetary_value)
+      params.require(:voucher).permit(:monetary_value, :expiration)
     end
 end

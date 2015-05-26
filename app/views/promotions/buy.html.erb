@@ -1,0 +1,14 @@
+<% if @coupon.nil? then %>
+  <h1>Não foi possível gerar o cupom. Tente novamente.</h1>
+<% else %>
+  <h1>Cupom comprado com sucesso!</h1>
+<pre>
+            Usuário: <%= @coupon.user.email %>
+               Code: <%= @coupon.code %>
+          Resgatado: <%= @coupon.redeemed %>
+           Promoção: <%= @coupon.promotion.title %>
+            Empresa: <%= @coupon.promotion.company.name %>
+</pre>
+
+<% end %>
+<%= link_to "Voltar", :back %>

@@ -9,7 +9,11 @@ Rails.application.routes.draw do
 
   post 'redeem', to: "points#redeem"
 
-  resources :points, only: [:new]
+  resources :points, only: [:new, :index] do
+    collection do
+      get "company/:company_id", to: "points#show", as: "company"
+    end
+  end
 
   devise_for :users, controllers: { sessions: "users/sessions" }
   devise_for :managers, controllers: { sessions: "users/sessions" }
@@ -18,11 +22,13 @@ Rails.application.routes.draw do
   get "promotions/all", to: "promotions#all"
   shallow do
     resources :companies, only: [:index] do
-      resources :promotions, only: [:index, :show]
+      resources :promotions, only: [:index, :show] do
+        member do
+          get :buy
+        end
+      end
     end
   end
-
-  resources :points, only: [:index, :show]
 
   namespace :clerks do
     shallow do
@@ -33,6 +39,8 @@ Rails.application.routes.draw do
       end
     end
     get '/', to: "vouchers#index"
+    get 'blah', to: "coupons#blah"
+    post 'redeem', to: "coupons#redeem"
   end
 
   namespace :managers do
