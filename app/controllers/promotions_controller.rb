@@ -23,7 +23,12 @@ class PromotionsController < ApplicationController
     @coupon.user = current_user
     @coupon.redeemed = false
     @coupon.save
-    respond_with(@coupon)
+    if @coupon.errors.any?
+      flash[:error] = @coupon.errors.full_messages.to_sentence
+      redirect_to @promotion
+    else
+      respond_with(@coupon)
+    end
   end
 
   def show
