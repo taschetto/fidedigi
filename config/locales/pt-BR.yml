@@ -17,6 +17,7 @@ pt-BR:
   new: Novo
   edit: Editar
   profile: Perfil
+  coupon: Cupom
   sign_out: Sair
   back: Voltar
   view: Visualizar
@@ -27,7 +28,9 @@ pt-BR:
   buy: Comprar usando meus pontos
   companiess: "Empresas"
   promotionss: "Promoções"
-  pointss: "Extrato de Pontos"
+  pointss: "Saldo de Pontos por Empresa"
+  pointsss: "Extrato de Pontos da Empresa"
+  extract: Ver Extrato
   menu:
     companies: Empresas
     promotions: Promoções
@@ -66,9 +69,12 @@ pt-BR:
     expiration: Expira em
     redeem: Resgatar
     redeemed: Resgatado
+  coupons:
+    redeem: Resgatar
   yes: Sim
   no: Não
   errors:
     invalid_voucher: Voucher inválido ou já resgatado.
+    invalid_coupon: Cupom inválido ou já resgatado.
     positive: Valor deve ser superior à R$ 0,00.
     minimum: "Valor deve ser superior ao mínimo especificado pela empresa (R$ %{minimum})."

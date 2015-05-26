@@ -5,17 +5,17 @@
     <tr>
       <th><%= t "points.id" %></th>
       <th><%= t "points.company" %></th>
-      <th><%= t "points.expiration" %></th>
       <th><%= t "points.balance" %></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-    <% @points.each do |point| %>
+    <% @points.each do |company, balance| %>
       <tr>
-        <td><%= point.id %></td>
-        <td><%= point.company.name %></td>
-        <td><%= point.expiration %></td>
-        <td><%= point.balance %></td>
+        <td><%= company.id %></td>
+        <td><%= company.name %></td>
+        <td><%= balance %></td>
+        <td><%= link_to t(:extract), company_points_path(company.id) %></td>
       </tr>
     <% end %>
   </tbody>

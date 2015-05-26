@@ -3,17 +3,19 @@
   <div class="col-md-9">
     <div class="row">
       <div class="col-md-12">
+        <h1><%= @promotion.title %></h1>
         <h3><small><%= t "company" %></small> <%= @promotion.company.name %></h3>
         <h3><small><%= t "companies.expiration" %> </small><%= @promotion.expiration %></h3>
         <h3><small><%= t "companies.value" %></small> <%= @promotion.value %></h3>
         <h3><small><%= t "companies.availability" %></small> <%= @promotion.availability %></h3>
-        <h3><%= @promotion.title %></h3>
-        <h3><%= @promotion.description %></h3>
+        <hr>
+        <h4><%= @promotion.description %></h4>
+        <hr>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
-        <button class="btn btn-success btn-block" width="100%"><%= t "buy" %></button>
+        <%= link_to t("buy"), buy_promotion_path(@promotion), class: "btn btn-success btn-block" %>
       </div>
     </div>
   </div>

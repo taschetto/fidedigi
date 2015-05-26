@@ -1,6 +1,11 @@
 <h1><%= "#{t :new} #{t :voucher}" %></h1>
 <%= simple_form_for @voucher, url: clerks_vouchers_path do |form| %>
       <%= form.input :monetary_value, as: :string, label: t("vouchers.monetary_value"), input_html: { class: "moneymask"} %>
+      <%= form.input :expiration,
+            :collection => [30.days.from_now.to_date, 60.days.from_now.to_date, 90.days.from_now.to_date, 120.days.from_now.to_date],
+            label_method: ->(obj){ t("#{(obj - Date.today).to_i} dias") },
+            :label => t("vouchers.expiration"),
+            :include_blank => false %>
       <%= form.submit "#{t(:new)} #{t(:voucher)}", class: "btn btn-primary" %>
 <% end %>
 

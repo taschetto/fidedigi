@@ -1,18 +1,22 @@
 class PointsController < ApplicationController
   layout "layouts/application"
   before_action :authenticate_user!
-  before_action :set_user, only: [:index]
-  before_action :set_point, only: [:show]
+  before_action :set_user, only: [:index, :show]
+  before_action :set_company, only: [:show]
 
   respond_to :html, :json
 
   def index
-    @points = @user.points
+    @points = @user.points_by_company
     respond_with(@points)
   end
 
   def show
-    respond_with(@point)
+    @points = @user.points.
+                where("balance > 0").
+                where(company: @company).
+                order("expiration ASC")
+    respond_with(@points)
   end
 
   def new
@@ -38,7 +42,7 @@ private
     @user = current_user
   end
 
-  def set_point
-    @point = Point.find(params[:id])
+  def set_company
+    @company = Company.find(params[:company_id])
   end
 end
