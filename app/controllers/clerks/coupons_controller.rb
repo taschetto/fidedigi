@@ -14,7 +14,7 @@ class Clerks::CouponsController < ApplicationController
     else
       @coupon.redeemed = true
       @coupon.save
-      #respond_with(@coupon)
+      respond_with(@coupon)
     end
   end
 
