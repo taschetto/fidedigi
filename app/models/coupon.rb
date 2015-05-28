@@ -5,7 +5,7 @@ class Coupon < ActiveRecord::Base
   belongs_to :promotion
   belongs_to :user
 
-  validate :has_points
+  validate :has_points, on: [ :create ]
 
   def has_points
     balance = self.user.points_by_company[self.promotion.company]
