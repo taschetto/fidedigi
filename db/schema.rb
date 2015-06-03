@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150525225338) do
+ActiveRecord::Schema.define(version: 20150603003220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accesses", force: :cascade do |t|
+    t.date     "accessed_at"
+    t.integer  "access_count"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "accesses", ["accessed_at"], name: "index_accesses_on_accessed_at", using: :btree
 
   create_table "clerks", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
