@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   root 'dashboard#index'
 
   get 'listusers', to: 'list_users#index'
+  get 'accesses', to: 'accesses#index'
 
   post 'redeem', to: "points#redeem"
 

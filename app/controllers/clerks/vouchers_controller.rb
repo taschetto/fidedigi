@@ -5,6 +5,7 @@ class Clerks::VouchersController < ApplicationController
   respond_to :html, :json
 
   def index
+    Access.inc
     @vouchers = current_clerk.vouchers.all
     respond_with(@vouchers)
   end
