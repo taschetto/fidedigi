@@ -1,4 +1,5 @@
 class AccessesController < ApplicationController
+  layout :layout
   def index
     @accesses = Hash.new(0)
     @accesses[:day] = Access.find_by(accessed_at: Date.today).access_count
@@ -12,5 +13,10 @@ class AccessesController < ApplicationController
     year_accesses.each do |a|
       @accesses[:year] += a.access_count
     end
+  end
+
+  def layout
+    return "devise" if current_user.nil?
+    "application"
   end
 end
